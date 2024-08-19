@@ -14,7 +14,6 @@
     "next": "14.2.5",
     "pinata": "^0.2.0",
     "pinata-fdk": "^3.10.2",
-    "privy": "^0.4.1",
     "react": "^18",
     "react-dom": "^18",
     "rescript": "^11.1.3",

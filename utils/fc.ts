@@ -4,3 +4,7 @@ export const getConnectedAddressForUser = async (fid: number) => {
     const address = json.messages[0].data.verificationAddAddressBody.address
     return address
   }
+
+  export const getNftTokenFromAddress = async (fid: number) => {
+    getConnectedAddressForUser(fid)
+  }

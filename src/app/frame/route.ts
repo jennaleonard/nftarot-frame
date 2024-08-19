@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
-import { getConnectedAddressForUser } from "@/utils/fc";
-import { mintNft, balanceOf } from "@/utils/mint";
+import { getConnectedAddressForUser } from "../../../utils/fc";
+import { mintNft, balanceOf } from "../../../utils/mint";
 
 import { PinataFDK } from "pinata-fdk";
 const fdk = new PinataFDK({
@@ -26,9 +26,9 @@ export async function GET(req: NextRequest, res: NextResponse) {
 export async function POST(req: NextRequest, res: NextResponse) {
   const body = await req.json();
   const fid = body.untrustedData.fid;
-  const address = await getConnectedAddressForUser(fid);
+  const address = await getConnectedAddressForUser(fid); // need a fn for tokenId ?? not sure
   const balance = await balanceOf(address);
-  console.log(balance);
+  console.log(balance); // need to test what data returns here in order to see if the tokenId can be pulled from the balance?
   if (typeof balance === "number" && balance !== null && balance < 1) {
     try {
       const mint = await mintNft(address);
